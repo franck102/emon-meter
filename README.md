@@ -13,10 +13,12 @@ Hardware:
 Software:
 - The sketch has been tested with the OpenEnergyMonitor version of the JeeLib library:
   https://github.com/openenergymonitor/jeelib
+  
   The radio may or may not work with other versions of the JeeLib library.
   
-See EmonMeter.ino for configuration of the inputs. All counters are reported to emonHub as 32 bit unsigned longs, sp the emonHub config entry will look something like this:
-
+See EmonMeter.ino for configuration of the inputs. All counters are reported to emonHub as 32 bit unsigned longs,
+so the emonHub config entry will look something like this:
+```
 [[18]]
     nodename = emonmeter
     [[[rx]]]
@@ -24,3 +26,7 @@ See EmonMeter.ino for configuration of the inputs. All counters are reported to 
         datacodes = L,L,L
         scales = 1,1,1
         units = ml,Wh,l
+```
+
+In emonCMS you can use a *Total pulse count to pulse increment* followed by an *Accumulator* processor
+to log the pulse counts; those processors will properly handle node resets (which cause the counters to restart from zero).
