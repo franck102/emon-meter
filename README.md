@@ -5,6 +5,9 @@ This sketch turns a pro mini + RFM69 radio combo into a custom OpenEnergyMonitor
 The node communicates via radio with the emonPi radio to report pulse inputs received from pulse meters (water, fuel, electricity...).
 The sketch also supports tracking the "on time" of an appliance, by generating pulses at a configurable rate as long as an input pin is HIGH.
 
+CREDITS:
+- https://github.com/openenergymonitor/learn/blob/master/view/electricity-monitoring/pulse-counting/12-input-pulse-counting.md
+
 Hardware:
 - a power supply (e.g. 5V USB into the pro mini Raw input). Battery operation is out since the sketch monitors digital pins in a tight loop.
 - An Arduino pro mini, 3.3V 8MHz. The 5V / 16MHz version would require a 3.3V regulator for the RFM69m (which is *not* 5V compatible)
